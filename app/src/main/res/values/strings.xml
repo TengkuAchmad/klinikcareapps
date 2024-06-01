@@ -16,4 +16,12 @@
     <string name="nik_register">Nomor Induk Kependudukan (sesuai KTP)</string>
     <string name="nip_register">Nomor Induk Pegawai (NIP)</string>
     <string name="policy">Dengan mendaftar saya telah menyetujui Ketentuan dan Privasi pada layanan ini</string>
+    <string name="card_text_antrian">Nomor Antrian Anda</string>
+    <string name="card_text_antrian_2">Nomor Antrian Diperiksa</string>
+    <string name="card_text_antrian_3">Jadwal Pemeriksaan Anda</string>
+    <string name="card_text_antrian_officer">Nomor Antrian Saat Ini</string>
+    <string name="card_text_antrian_officer_2">Nomor Antrian Berikutnya</string>
+    <string name="card_text_antrian_officer_3">Jumlah Total Antrian</string>
+    <string name="jam_operasional">Jam Operasional</string>
+    <string name="jam_operasional_value">08.00 - 17.00 WIB</string>
 </resources>
