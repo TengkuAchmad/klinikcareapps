@@ -14,5 +14,6 @@
     <string name="phone_register">+62 XXXXXXXXX</string>
     <string name="datebirth_register">Tanggal Lahir</string>
     <string name="nik_register">Nomor Induk Kependudukan (sesuai KTP)</string>
+    <string name="nip_register">Nomor Induk Pegawai (NIP)</string>
     <string name="policy">Dengan mendaftar saya telah menyetujui Ketentuan dan Privasi pada layanan ini</string>
 </resources>
