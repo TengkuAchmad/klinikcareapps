@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.features.pasien.register.activity.register_user
+import com.example.klinikcaremobile.features.petugas.register.activity.register_petugas
 
 class Roles : AppCompatActivity() {
 
@@ -78,12 +79,13 @@ class Roles : AppCompatActivity() {
         val isOfficerActive = officerImageView.colorFilter == null
         val isUserActive = userImageView.colorFilter == null
         if (isOfficerActive) {
-            Toast.makeText(this, "Navigate to officer page is under development", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, register_petugas::class.java)
+            startActivity(intent)
         } else if (isUserActive) {
             val intent  = Intent(this, register_user::class.java)
             startActivity(intent)
         } else {
-            Toast.makeText(this, "No active image selected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "No active role selected", Toast.LENGTH_SHORT).show()
         }
     }
 }

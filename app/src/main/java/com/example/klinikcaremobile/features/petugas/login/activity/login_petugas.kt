@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
-import com.example.klinikcaremobile.features.pasien.register.activity.register_user
+import com.example.klinikcaremobile.features.petugas.register.activity.register_petugas
 
 class login_petugas : AppCompatActivity() {
 
@@ -36,7 +36,7 @@ class login_petugas : AppCompatActivity() {
     }
 
     private fun navigateToRegisterPage(){
-        val intent  = Intent(this, register_user::class.java)
+        val intent  = Intent(this, register_petugas::class.java)
         startActivity(intent)
     }
 }
