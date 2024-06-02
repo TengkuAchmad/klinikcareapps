@@ -24,4 +24,6 @@
     <string name="card_text_antrian_officer_3">Jumlah Total Antrian</string>
     <string name="jam_operasional">Jam Operasional</string>
     <string name="jam_operasional_value">08.00 - 17.00 WIB</string>
+    <string name="user_role">PASIEN</string>
+    <string name="officer_role">PETUGAS MEDIS</string>
 </resources>

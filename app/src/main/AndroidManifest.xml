@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Klinikcaremobile.Starting"
         tools:targetApi="31">
         <activity
-            android:name=".features.petugas.home.activity.home_petugas"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Klinikcaremobile.Starting">
@@ -49,6 +46,18 @@
             android:name=".features.pasien.home.activity.home_pasien"
             android:exported="true"
             android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.home.activity.home_petugas"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.pasien.profile.activity.profile_user"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.profile.activity.profile_petugas"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile"/>
     </application>
 
 </manifest>
