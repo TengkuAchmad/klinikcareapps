@@ -4,13 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
+import com.example.klinikcaremobile.api.LoginRequest
 import com.example.klinikcaremobile.features.pasien.register.activity.register_user
 import com.example.klinikcaremobile.features.pasien.home.activity.home_pasien
+import com.example.klinikcaremobile.features.pasien.login.storage.LoginStorage
 
 class login_user : AppCompatActivity() {
 
@@ -35,7 +38,14 @@ class login_user : AppCompatActivity() {
             }
 
             loginButtonView.setOnClickListener{
-                navigateToHomePage()
+                val email = emailEditText.text.toString()
+                val password = passwordEditText.text.toString()
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(this, "Email dan password harus diisi", Toast.LENGTH_LONG).show()
+                } else {
+                    performLoginRequest(email, password)
+                }
+
             }
 
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -56,5 +66,20 @@ class login_user : AppCompatActivity() {
     private fun navigateToHomePage() {
         val intent = Intent(this, home_pasien::class.java)
         startActivity(intent)
+    }
+
+    private fun performLoginRequest(email: String, password: String) {
+        val loginStorage = LoginStorage(this)
+        val loginRequest = LoginRequest(loginStorage)
+        loginRequest.performLoginRequest(email, password) { success, message ->
+            runOnUiThread {
+                if (success) {
+                    Toast.makeText(this, "Registrasi Akun berhasil!", Toast.LENGTH_LONG).show()
+                    navigateToHomePage()
+                } else {
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 }

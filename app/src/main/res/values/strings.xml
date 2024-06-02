@@ -10,7 +10,7 @@
     <string name="login_desc">Lengkapi data dibawah ini untuk masuk</string>
     <string name="email_text">Email</string>
     <string name="password_text">Kata Sandi</string>
-    <string name="name_register">Nama Lengkap (sesuai NIK)</string>
+    <string name="name_register">Nama Lengkap (sesuai KTP)</string>
     <string name="phone_register">+62 XXXXXXXXX</string>
     <string name="datebirth_register">Tanggal Lahir</string>
     <string name="nik_register">Nomor Induk Kependudukan (sesuai KTP)</string>

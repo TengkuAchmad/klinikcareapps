@@ -158,6 +158,7 @@
             android:hint="@string/datebirth_register"
             android:padding="15dp"
             android:inputType="date"
+            android:clickable="true"
             app:layout_constraintTop_toBottomOf="@id/phone_register_user"
             app:layout_constraintStart_toStartOf="@id/register_desc_user"
             />
@@ -189,7 +190,7 @@
             app:layout_constraintStart_toStartOf="@id/imageView" />
 
         <Button
-            android:id="@+id/button_splashscreen"
+            android:id="@+id/button_register_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
