@@ -1,8 +1,8 @@
-package com.example.klinikcaremobile.api
+package com.example.klinikcaremobile.features.petugas.login.api
 
 import android.util.Log
 import com.example.klinikcaremobile.constants.AppConstants
-import com.example.klinikcaremobile.features.pasien.login.storage.LoginStorage
+import com.example.klinikcaremobile.features.petugas.login.storage.LoginStorage
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.http.Body
@@ -27,7 +27,7 @@ interface ApiService {
 
 object ApiClient {
     private val retrofit = retrofit2.Retrofit.Builder()
-        .baseUrl(AppConstants.USER_URL)
+        .baseUrl(AppConstants.OFFICER_URL)
         .addConverterFactory(retrofit2.converter.gson.GsonConverterFactory.create())
         .build()
 

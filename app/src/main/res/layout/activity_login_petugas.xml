@@ -84,7 +84,7 @@
         app:layout_constraintStart_toStartOf="@id/imageView" />
 
     <EditText
-        android:id="@+id/email_register_petugas"
+        android:id="@+id/email_login_petugas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -99,7 +99,7 @@
         />
 
     <EditText
-        android:id="@+id/password_register_pasien"
+        android:id="@+id/password_login_petugas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="17dp"
@@ -109,7 +109,7 @@
         android:autofillHints="password"
         android:padding="15dp"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/email_register_petugas"
+        app:layout_constraintTop_toBottomOf="@id/email_login_petugas"
         app:layout_constraintStart_toStartOf="@id/login_desc_user"
         />
 

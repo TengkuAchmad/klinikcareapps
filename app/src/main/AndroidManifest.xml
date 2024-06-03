@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Klinikcaremobile.Starting"
         tools:targetApi="31">
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -64,7 +63,11 @@
         <activity
             android:name=".features.pasien.register.responses.success_registered"
             android:exported="true"
-            android:theme="@style/Theme.Klinikcaremobile"/>
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.register.responses.successOfficer_registered"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
     </application>
 
 </manifest>

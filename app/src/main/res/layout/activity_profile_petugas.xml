@@ -22,14 +22,15 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button_update_profil"
+        android:id="@+id/buttonOfficer_Home"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
-        android:padding="10dp"
+        android:paddingHorizontal="20dp"
         android:background="@drawable/button_outlined_rounded"
-        android:text="UBAH PROFIL"
+        android:text="Beranda"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:textColor="@color/primary_blue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -109,10 +110,10 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/UserRole">
@@ -135,10 +136,9 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/card_pusat_bantuan">
@@ -161,10 +161,9 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            app:cardElevation="8dp"
+            app:cardElevation="2dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/card_tentang_aplikasi">

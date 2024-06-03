@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.api.RegisterRequest
 import com.example.klinikcaremobile.features.pasien.login.activity.login_user
-import com.example.klinikcaremobile.features.pasien.register.responses.success_registered
+import com.example.klinikcaremobile.features.petugas.register.responses.successOfficer_registered
 import java.util.Calendar
 
 class register_user : AppCompatActivity() {
@@ -103,7 +103,7 @@ class register_user : AppCompatActivity() {
     }
 
     private fun navigateToSuccessPage() {
-        val intent  = Intent(this, success_registered::class.java)
+        val intent  = Intent(this, successOfficer_registered::class.java)
         startActivity(intent)
     }
 

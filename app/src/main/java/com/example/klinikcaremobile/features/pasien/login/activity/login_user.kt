@@ -13,7 +13,12 @@ import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.api.LoginRequest
 import com.example.klinikcaremobile.features.pasien.register.activity.register_user
 import com.example.klinikcaremobile.features.pasien.home.activity.home_pasien
+import com.example.klinikcaremobile.features.pasien.login.api.IdentityRequest
+import com.example.klinikcaremobile.features.pasien.login.api.TicketRequest
+import com.example.klinikcaremobile.features.pasien.login.storage.IdentityStorage
 import com.example.klinikcaremobile.features.pasien.login.storage.LoginStorage
+import com.example.klinikcaremobile.features.pasien.login.storage.TicketStorage
+import kotlin.math.log
 
 class login_user : AppCompatActivity() {
 
@@ -70,12 +75,30 @@ class login_user : AppCompatActivity() {
 
     private fun performLoginRequest(email: String, password: String) {
         val loginStorage = LoginStorage(this)
+        val identityStorage = IdentityStorage(this)
+        val ticketStorage = TicketStorage(this)
+
         val loginRequest = LoginRequest(loginStorage)
+        val identityRequest = IdentityRequest(loginStorage, identityStorage)
+        val ticketRequest = TicketRequest(loginStorage, ticketStorage)
+
         loginRequest.performLoginRequest(email, password) { success, message ->
             runOnUiThread {
                 if (success) {
-                    Toast.makeText(this, "Registrasi Akun berhasil!", Toast.LENGTH_LONG).show()
-                    navigateToHomePage()
+                    identityRequest.getUserData { success, message ->
+                        if (success) {
+                            ticketRequest.getTicketData { success, message ->
+                                if (success) {
+                                    navigateToHomePage()
+                                } else {
+                                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                            navigateToHomePage()
+                        } else {
+                            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 }

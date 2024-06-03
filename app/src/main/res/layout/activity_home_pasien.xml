@@ -4,9 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,24 +31,33 @@
             android:text="@string/welcome_text"
             android:textSize="12sp"
             android:textStyle="normal"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toTopOf="@+id/userName"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/avatar" />
 
         <TextView
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
             android:text="Santa Silalahi"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:layout_marginEnd="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/avatar" />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:clickable="true"
+            android:src="@drawable/ic_avatar"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintTop_toTopOf="@id/welcome_view"
+            app:layout_constraintRight_toRightOf="parent"
+        />
+
 
 
         <TextView
@@ -107,7 +114,7 @@
             android:clickable="true"
             app:layout_constraintTop_toBottomOf="@id/imageCarousel"
             app:layout_constraintStart_toEndOf="@+id/imageAppointment"
-            app:layout_constraintEnd_toEndOf="@+id/userName"
+            app:layout_constraintEnd_toEndOf="@+id/avatar"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintHorizontal_bias="0.5" />
 
@@ -127,7 +134,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingVertical="19dp"
+                android:paddingHorizontal="11dp">
+
                 <TextView
                     android:id="@+id/title_card_antrian"
                     android:layout_width="wrap_content"
@@ -152,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:background="@drawable/button_white_rounded"
-                    android:text="PERIKSA"
+                    android:text="PERBARUI"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_blue"
@@ -193,12 +202,12 @@
 
                 <TextView
                     android:id="@+id/nomor_antrian_value"
-                    android:layout_width="wrap_content"
+                    android:layout_width="135dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Antrian 006"
+                    android:text="10 Antrian"
                     android:textColor="@color/black"
-                    android:textSize="26sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -222,7 +231,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
                 <TextView
-                    android:id="@+id/jadwal_antrian"
+                    android:id="@+id/jumlah_antrian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/card_text_antrian_3"
@@ -231,11 +240,11 @@
                     android:textStyle="normal"
                     android:layout_marginTop="4dp" />
                 <TextView
-                    android:id="@+id/jadwal_antrian_value"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/jumlah_antrian_value"
+                    android:layout_width="135dp"
                     android:layout_height="wrap_content"
-                    android:text="18 Mei 2024 10.30-11.00 WIB"
-                    android:textSize="10sp"
+                    android:text="13"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_marginTop="4dp" />
