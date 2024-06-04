@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
+import com.example.klinikcaremobile.features.pasien.appointment.activity.appointment
 import com.example.klinikcaremobile.features.pasien.login.storage.IdentityStorage
 import com.example.klinikcaremobile.features.pasien.login.storage.TicketStorage
 import com.example.klinikcaremobile.features.pasien.profile.activity.profile_user
@@ -19,6 +20,7 @@ class home_pasien : AppCompatActivity() {
     private lateinit var nomorAntrianView: TextView
     private lateinit var sisaAntrianView: TextView
     private lateinit var jumlahAntrianView: TextView
+    private lateinit var appointmentView: ImageView
 
     private lateinit var identityStorage: IdentityStorage
     private lateinit var ticketStorage: TicketStorage
@@ -34,6 +36,7 @@ class home_pasien : AppCompatActivity() {
         nomorAntrianView = findViewById(R.id.nomor_antrian)
         sisaAntrianView = findViewById(R.id.nomor_antrian_value)
         jumlahAntrianView = findViewById(R.id.jumlah_antrian_value)
+        appointmentView = findViewById(R.id.imageAppointment)
 
 
 
@@ -46,6 +49,10 @@ class home_pasien : AppCompatActivity() {
             NavigateToProfile()
         }
 
+        appointmentView.setOnClickListener{
+            NavigateToAppointment()
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -55,6 +62,11 @@ class home_pasien : AppCompatActivity() {
 
     private fun NavigateToProfile() {
         val intent = Intent(this, profile_user::class.java)
+        startActivity(intent)
+    }
+
+    private fun NavigateToAppointment() {
+        val intent = Intent(this, appointment::class.java)
         startActivity(intent)
     }
 

@@ -68,6 +68,10 @@
             android:name=".features.petugas.register.responses.successOfficer_registered"
             android:exported="true"
             android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.pasien.appointment.activity.appointment"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
     </application>
 
 </manifest>
