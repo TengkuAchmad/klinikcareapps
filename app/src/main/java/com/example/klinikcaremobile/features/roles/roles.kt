@@ -1,13 +1,9 @@
 package com.example.klinikcaremobile.features.roles
 
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -17,7 +13,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.features.pasien.register.activity.register_user
-import com.example.klinikcaremobile.features.petugas.register.activity.register_petugas
+import com.example.klinikcaremobile.features.petugas.login.activity.login_petugas
+
 
 class Roles : AppCompatActivity() {
 
@@ -79,7 +76,7 @@ class Roles : AppCompatActivity() {
         val isOfficerActive = officerImageView.colorFilter == null
         val isUserActive = userImageView.colorFilter == null
         if (isOfficerActive) {
-            val intent = Intent(this, register_petugas::class.java)
+            val intent = Intent(this, login_petugas::class.java)
             startActivity(intent)
         } else if (isUserActive) {
             val intent  = Intent(this, register_user::class.java)

@@ -84,6 +84,18 @@
             android:name=".features.petugas.antrian.activity.daftar_pemeriksaan"
             android:exported="true"
             android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.diagnosa.activity.create_diagnosa"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.diagnosa.response.success_diagnosa"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.riwayat.activity.riwayat_pemeriksaan"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile"  />
     </application>
 
 </manifest>

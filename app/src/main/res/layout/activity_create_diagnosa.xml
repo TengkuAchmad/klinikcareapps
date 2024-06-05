@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    tools:context=".features.petugas.diagnosa.activity.create_diagnosa">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="20dp"
+            android:clickable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ic_back" />
+
+
+        <TextView
+            android:id="@+id/welcome_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat Catatan"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toTopOf="@+id/button_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/officerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pemeriksaan Pasien"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/welcome_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/user_identity_diagnose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/primary_blue"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:layout_constraintTop_toBottomOf="@id/officerName">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CATATAN PEMERIKSAAN PASIEN"
+                    android:textSize="13sp"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/userName_diagnose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SANTA SILALAHI"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/userNIK_diagnose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NIK. 09124912412454"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/user_data_diagnose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/form_background"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp"
+            app:layout_constraintTop_toBottomOf="@id/user_identity_diagnose">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ID PEMERIKSAAN : "
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/identityNo_diagnose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2012/1230124/123"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PETUGAS                : "
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/officerName_diagnose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dr. Santi"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="HASIL DIAGNOSA"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:id="@+id/hasil_diagnosa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="0dp"
+                    android:background="@drawable/form_background"
+                    android:hint="Masukkan hasil diagnosa disini"
+                    android:ems="22"
+                    android:padding="15dp"
+                    android:inputType="textMultiLine"
+                    android:minLines="4"
+                    android:maxLines="10"
+                    android:gravity="top|start"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="HASIL PEMERIKSAAN ALERGI"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:id="@+id/hasil_alergi_diagnosa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="0dp"
+                    android:background="@drawable/form_background"
+                    android:hint="Masukkan hasil pemeriksaan alergi disini"
+                    android:ems="22"
+                    android:padding="15dp"
+                    android:inputType="textMultiLine"
+                    android:minLines="4"
+                    android:maxLines="10"
+                    android:gravity="top|start"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="RESEP OBAT"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+
+                <EditText
+                    android:id="@+id/hasil_obat_diagnosa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="0dp"
+                    android:background="@drawable/form_background"
+                    android:hint="Masukkan resep obat disini"
+                    android:ems="22"
+                    android:padding="15dp"
+                    android:inputType="textMultiLine"
+                    android:minLines="4"
+                    android:maxLines="10"
+                    android:gravity="top|start"
+                    android:textSize="15sp"
+                    />
+
+                <Button
+                    android:id="@+id/button_diagnosa_request"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/button_rounded"
+                    android:text="SIMPAN"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintTop_toBottomOf="@id/hasil_obat_diagnosa"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

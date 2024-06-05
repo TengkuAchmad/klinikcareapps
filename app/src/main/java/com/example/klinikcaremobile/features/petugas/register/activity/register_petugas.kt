@@ -108,7 +108,7 @@ class register_petugas : AppCompatActivity() {
 
     private fun performRegisterRequest(name: String, email: String, password: String, phone: String, nip: String, birthdate: String) {
         val registerOfficerRequest = RegisterOfficerRequest()
-        registerOfficerRequest.performRegisterRequest(name, email, password, phone, nip, birthdate) { success, message ->
+        registerOfficerRequest.performRegisterRequest(name, email, password, phone, birthdate, nip) { success, message ->
             runOnUiThread{
                 if (success) {
                     navigateToSuccessPage()

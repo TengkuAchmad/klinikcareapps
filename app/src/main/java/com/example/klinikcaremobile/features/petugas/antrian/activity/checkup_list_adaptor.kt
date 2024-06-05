@@ -1,5 +1,6 @@
 package com.example.klinikcaremobile.features.petugas.antrian.activity
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,20 +18,20 @@ class CheckUpListAdaptor (private val mList: List<CheckupListViewModel>) : Recyc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val checkupListViewModel = mList[position]
+        Log.d("CheckUpListAdaptor", "Binding data at position $position: $checkupListViewModel")
 
-        val CheckupListViewModel = mList[position]
-
-        holder.userNameView.text = CheckupListViewModel.userName
-        holder.userNIKView.text = CheckupListViewModel.userNik
-        holder.nomorAntrianView.text = CheckupListViewModel.nomorAntrian
-
+        holder.userNameView.text = checkupListViewModel.userName
+        holder.userNIKView.text = checkupListViewModel.userNik
+        holder.nomorAntrianView.text = checkupListViewModel.nomorAntrian
     }
+
     override fun getItemCount(): Int {
         return mList.size
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val userNameView: TextView = itemView.findViewById(R.id.userNIK_checkup_recycler)
+        val userNameView: TextView = itemView.findViewById(R.id.userName_checkup_recycler)
         val userNIKView: TextView = itemView.findViewById(R.id.userNIK_checkup_recycler)
         val nomorAntrianView: TextView = itemView.findViewById(R.id.userTicket_checkup_recycler)
     }

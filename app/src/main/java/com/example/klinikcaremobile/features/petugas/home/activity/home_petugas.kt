@@ -3,17 +3,21 @@ package com.example.klinikcaremobile.features.petugas.home.activity
 import TicketOfficerRequest
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
+import com.example.klinikcaremobile.features.petugas.login.storage.LoginStorage
 import com.example.klinikcaremobile.features.petugas.antrian.activity.daftar_pemeriksaan
 import com.example.klinikcaremobile.features.petugas.login.storage.IdentityOfficerStorage
 import com.example.klinikcaremobile.features.petugas.login.storage.TicketOfficerStorage
 import com.example.klinikcaremobile.features.petugas.profile.activity.profile_petugas
+import com.example.klinikcaremobile.features.petugas.riwayat.activity.riwayat_pemeriksaan
 
 class home_petugas : AppCompatActivity() {
     private lateinit var buttonProfileView: ImageView
@@ -22,6 +26,8 @@ class home_petugas : AppCompatActivity() {
     private lateinit var countWaitingTicketView: TextView
     private lateinit var completedTicketView: TextView
     private lateinit var imageAppointmentView: ImageView
+    private lateinit var imageHistoryView: ImageView
+    private lateinit var buttonCheckView: Button
 
     private lateinit var officerIdentityStorage: IdentityOfficerStorage
     private lateinit var officerTicketStorage: TicketOfficerStorage
@@ -37,6 +43,8 @@ class home_petugas : AppCompatActivity() {
         countWaitingTicketView = findViewById(R.id.nomor_antrian_value)
         completedTicketView = findViewById(R.id.jadwal_antrian_value)
         imageAppointmentView = findViewById(R.id.imageAppointment)
+        buttonCheckView = findViewById(R.id.button_check_antrian)
+        imageHistoryView = findViewById(R.id.imageHistory)
 
 
         officerIdentityStorage = IdentityOfficerStorage(this)
@@ -44,8 +52,16 @@ class home_petugas : AppCompatActivity() {
 
         setContent()
 
+        imageHistoryView.setOnClickListener{
+            NavigateToHistory()
+        }
+
         imageAppointmentView.setOnClickListener {
             NavigateToCheckupList()
+        }
+
+        buttonCheckView.setOnClickListener{
+            RefreshAntrianData()
         }
 
 
@@ -60,6 +76,11 @@ class home_petugas : AppCompatActivity() {
         }
     }
 
+    private fun NavigateToHistory() {
+        val intent = Intent(this, riwayat_pemeriksaan::class.java)
+        startActivity(intent)
+    }
+
     private fun NavigateToProfile() {
         val intent = Intent(this, profile_petugas::class.java)
         startActivity(intent)
@@ -70,13 +91,28 @@ class home_petugas : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun RefreshAntrianData() {
+        val loginStorage = LoginStorage(this)
+        val ticketStorage = TicketOfficerStorage(this)
+
+        val ticketRequest = TicketOfficerRequest(loginStorage, ticketStorage)
+
+        ticketRequest.getTicketOfficerData{ success, message ->
+            if (success) {
+                setContent()
+            } else {
+                Toast.makeText(this, "Failed to retrive ticket data", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     private fun setContent() {
         val fullName = officerIdentityStorage.getName()?:""
-        val firstName = fullName.split(" ").firstOrNull()
-        officerNameView.text = firstName
+        officerNameView.text = fullName
 
         val waitingTicketNumber = officerTicketStorage.getWaitingTicketNumber() ?: ""
-        waitingTicketView.text = waitingTicketNumber.toString()
+        val formattedTicketNumber = "00$waitingTicketNumber"
+        waitingTicketView.text = formattedTicketNumber
 
         val countWaitingTicket = officerTicketStorage.getWaitingTotalTicket() ?: ""
         countWaitingTicketView.text = countWaitingTicket.toString()

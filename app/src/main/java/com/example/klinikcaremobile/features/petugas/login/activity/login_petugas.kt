@@ -21,7 +21,6 @@ import com.example.klinikcaremobile.features.petugas.register.activity.register_
 
 class login_petugas : AppCompatActivity() {
 
-    private lateinit var registerButtonView: Button
     private lateinit var loginButtonView: Button
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -32,14 +31,9 @@ class login_petugas : AppCompatActivity() {
             enableEdgeToEdge()
             setContentView(R.layout.activity_login_petugas)
 
-            registerButtonView  = findViewById(R.id.button_register)
             loginButtonView     = findViewById(R.id.button_login_request)
             emailEditText       = findViewById(R.id.email_login_petugas)
             passwordEditText    = findViewById(R.id.password_login_petugas)
-
-            registerButtonView.setOnClickListener{
-                navigateToRegisterPage()
-            }
 
             loginButtonView.setOnClickListener{
                 val email = emailEditText.text.toString()
@@ -60,11 +54,6 @@ class login_petugas : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-    private fun navigateToRegisterPage(){
-        val intent  = Intent(this, register_petugas::class.java)
-        startActivity(intent)
     }
 
     private fun navigateToHomePage(){

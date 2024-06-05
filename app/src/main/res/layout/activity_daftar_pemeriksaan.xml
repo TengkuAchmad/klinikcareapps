@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="20dp"
+    tools:context=".features.petugas.antrian.activity.daftar_pemeriksaan">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".features.petugas.antrian.activity.daftar_pemeriksaan">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:contentDescription="@string/app_name"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_margin="20dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/logo_only"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="40dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:clickable="true"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/ic_back" />
+
 
     <TextView
         android:id="@+id/welcome_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nomor Antrian"
+        android:text="Daftar Antrian"
         android:textSize="12sp"
         android:textStyle="normal"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/officerName"
+        app:layout_constraintTop_toTopOf="@+id/button_back"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
@@ -38,39 +40,15 @@
         android:id="@+id/officerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pemeriksaan Dokter"
+        android:text="Pemeriksaan Pasien"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@id/welcome_view"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/app_name_text_1"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        app:layout_constraintLeft_toRightOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name_text_2"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        app:layout_constraintLeft_toRightOf="@id/imageView"
-        app:layout_constraintTop_toBottomOf="@id/textView1"
-        android:layout_marginStart="10dp"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/head_recycle"
@@ -81,7 +59,7 @@
         android:layout_marginHorizontal="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="6dp"
-        app:layout_constraintTop_toBottomOf="@id/imageView">
+        app:layout_constraintTop_toBottomOf="@id/button_back">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -112,6 +90,7 @@
 
 
     <LinearLayout
+        android:id="@+id/antrian_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -122,8 +101,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="4"
-            tools:listitem="@layout/card_checkup_recycler"/>
+            tools:listitem="@layout/card_checkup_recycler" />
 
     </LinearLayout>
 
+
+    <Button
+        android:id="@+id/button_create_diagnose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="40dp"
+        android:text="Buat catatan medis untuk Antrian 001"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/button_rounded"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/antrian_recycle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
