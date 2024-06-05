@@ -6,20 +6,16 @@ import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Url
 
-data class TicketOfficerData(
-    @SerializedName("Nomor_TC") val ticketNumber: String?
-)
 
 data class WaitingTicketResponse(
-    @SerializedName("waitingTicket") val waitingTicket: TicketOfficerData?,
+    @SerializedName("waitingTicket") val waitingTicket: Int?,
     @SerializedName("waitingCount") val waitingCount: Int?,
     @SerializedName("completedCount") val completedCount: Int?
 )
 
 interface ApiServiceGetDataTicketOfficer {
-    @GET("waiting")
+    @GET("find/waiting")
     fun getDataTicketOfficer(@Header("Authorization") token: String): Call<WaitingTicketResponse>
 }
 
@@ -54,7 +50,7 @@ class TicketOfficerRequest(private val loginStorage: LoginStorage, private val t
                         val completedCount = waitingTicketResponse.completedCount
 
                         if (waitingTicket != null) {
-                            saveTicketOfficerData(waitingTicket.ticketNumber ?: "", waitingCount ?: 0, completedCount ?:0 )
+                            saveTicketOfficerData(waitingTicket ?: 0, waitingCount ?: 0, completedCount ?:0 )
                             callback(true, "Ticket data retrieved successfully")
                         } else {
                             Log.e("IdentityRequest", "Failed to retrieve ticket data: No waiting ticket")
@@ -77,7 +73,7 @@ class TicketOfficerRequest(private val loginStorage: LoginStorage, private val t
         })
     }
 
-    private fun saveTicketOfficerData(ticketNumber: String, waitingCount: Int, completedCount: Int) {
+    private fun saveTicketOfficerData(ticketNumber: Int, waitingCount: Int, completedCount: Int) {
         ticketStorage.saveTotalWaitingTicket(waitingCount)
         ticketStorage.saveWaitingTicketNumber(ticketNumber)
         ticketStorage.saveCompletedTicketNumber(completedCount)

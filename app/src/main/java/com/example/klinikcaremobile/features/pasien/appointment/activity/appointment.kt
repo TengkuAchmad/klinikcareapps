@@ -16,6 +16,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.features.pasien.appointment.api.AppointmentRequest
+import com.example.klinikcaremobile.features.pasien.appointment.api.TicketInfoRequest
+import com.example.klinikcaremobile.features.pasien.appointment.storage.TicketInfoStorage
 import com.example.klinikcaremobile.features.pasien.home.activity.home_pasien
 import com.example.klinikcaremobile.features.pasien.login.storage.IdentityStorage
 import com.example.klinikcaremobile.features.pasien.login.storage.LoginStorage
@@ -145,20 +147,27 @@ class appointment : AppCompatActivity() {
     }
 
     private fun navigateToTicketPage(){
-//        PERLU DIGANTI KE TICKET PAGE
-        val intent = Intent(this, home_pasien::class.java)
+        val intent = Intent(this, ticket_info::class.java)
         startActivity(intent)
     }
 
     private fun performAppointmentRequest(tanggal: String, waktu:String){
         val loginStorage = LoginStorage(this)
-       val appointmentRequest = AppointmentRequest(loginStorage)
+        val appointmentRequest = AppointmentRequest(loginStorage)
+        val ticketInfoStorage = TicketInfoStorage(this)
+        val identityStorage = IdentityStorage(this)
+        val ticketInfoRequest = TicketInfoRequest(loginStorage,identityStorage, ticketInfoStorage )
 
         appointmentRequest.performAppointmentRequest(tanggal, waktu) { success, message ->
             runOnUiThread{
                 if (success){
-                    Toast.makeText(this, "Berhasil membuat pengajuan baru!", Toast.LENGTH_SHORT).show()
-                    navigateToTicketPage()
+                    ticketInfoRequest.getTicketInfoData { success, message ->
+                        if (success) {
+                            navigateToTicketPage()
+                        } else {
+                            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
                     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 }

@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class LoginStorage(context: Context){
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
-        "access_token",
+        "storage",
         Context.MODE_PRIVATE
     )
 

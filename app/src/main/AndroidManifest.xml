@@ -72,6 +72,18 @@
             android:name=".features.pasien.appointment.activity.appointment"
             android:exported="true"
             android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.pasien.appointment.activity.ticket_info"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.pasien.appointment.activity.ticket_cancel_success"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.petugas.antrian.activity.daftar_pemeriksaan"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
     </application>
 
 </manifest>

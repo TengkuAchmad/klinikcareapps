@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.klinikcaremobile.R
+import com.example.klinikcaremobile.features.petugas.antrian.activity.daftar_pemeriksaan
 import com.example.klinikcaremobile.features.petugas.login.storage.IdentityOfficerStorage
 import com.example.klinikcaremobile.features.petugas.login.storage.TicketOfficerStorage
 import com.example.klinikcaremobile.features.petugas.profile.activity.profile_petugas
@@ -20,6 +21,7 @@ class home_petugas : AppCompatActivity() {
     private lateinit var waitingTicketView: TextView
     private lateinit var countWaitingTicketView: TextView
     private lateinit var completedTicketView: TextView
+    private lateinit var imageAppointmentView: ImageView
 
     private lateinit var officerIdentityStorage: IdentityOfficerStorage
     private lateinit var officerTicketStorage: TicketOfficerStorage
@@ -34,12 +36,18 @@ class home_petugas : AppCompatActivity() {
         waitingTicketView = findViewById(R.id.nomor_antrian)
         countWaitingTicketView = findViewById(R.id.nomor_antrian_value)
         completedTicketView = findViewById(R.id.jadwal_antrian_value)
+        imageAppointmentView = findViewById(R.id.imageAppointment)
 
 
         officerIdentityStorage = IdentityOfficerStorage(this)
         officerTicketStorage = TicketOfficerStorage(this)
 
         setContent()
+
+        imageAppointmentView.setOnClickListener {
+            NavigateToCheckupList()
+        }
+
 
         buttonProfileView.setOnClickListener{
             NavigateToProfile()
@@ -57,13 +65,18 @@ class home_petugas : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun NavigateToCheckupList() {
+        val intent = Intent(this, daftar_pemeriksaan::class.java)
+        startActivity(intent)
+    }
+
     private fun setContent() {
         val fullName = officerIdentityStorage.getName()?:""
         val firstName = fullName.split(" ").firstOrNull()
         officerNameView.text = firstName
 
         val waitingTicketNumber = officerTicketStorage.getWaitingTicketNumber() ?: ""
-        waitingTicketView.text = waitingTicketNumber
+        waitingTicketView.text = waitingTicketNumber.toString()
 
         val countWaitingTicket = officerTicketStorage.getWaitingTotalTicket() ?: ""
         countWaitingTicketView.text = countWaitingTicket.toString()

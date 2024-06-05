@@ -27,4 +27,5 @@
     <string name="user_role">PASIEN</string>
     <string name="officer_role">PETUGAS MEDIS</string>
     <string name="appointment_desc">Daftarkan diri Anda untuk mendapatkan nomor antrian dan terdaftar pada data rekam medis klinik.</string>
+    <string name="warning_text">Pastikan hadir 15 menit sebelum waktu pemeriksaan yang telah Anda pilih.</string>
 </resources>

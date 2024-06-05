@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class TicketOfficerStorage(context: Context){
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
-        "ticketOfficer_data",
+        "storage",
         Context.MODE_PRIVATE
     )
 
@@ -24,12 +24,12 @@ class TicketOfficerStorage(context: Context){
     }
 
 
-    fun saveWaitingTicketNumber(waitingTicket: String){
-        sharedPreferences.edit().putString(TICKET_NUMBER_KEY, waitingTicket).apply()
+    fun saveWaitingTicketNumber(waitingTicket: Int){
+        sharedPreferences.edit().putInt(TICKET_NUMBER_KEY, waitingTicket).apply()
     }
 
-    fun getWaitingTicketNumber(): String? {
-        return sharedPreferences.getString(TICKET_NUMBER_KEY, null)
+    fun getWaitingTicketNumber(): Int? {
+        return sharedPreferences.getInt(TICKET_NUMBER_KEY, 0)
     }
 
     fun saveTotalWaitingTicket(waitingticketTotal: Int){

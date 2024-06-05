@@ -51,6 +51,7 @@ class RegisterRequest{
                 if (response.isSuccessful) {
                     val registerUserResponse = response.body()
                     if (registerUserResponse != null ) {
+                        Log.d("LoginRequest", "Login Request Success")
                         callback(true, registerUserResponse.message)
                     } else {
                         val errorMsg = "Login failed. Please check your credentials."

@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation("com.google.code.gson:gson:2.8.6")
+    implementation("androidx.recyclerview:recyclerview:1.2.0")
     implementation("com.google.android.material:material:1.4.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

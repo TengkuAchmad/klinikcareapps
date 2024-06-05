@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class IdentityOfficerStorage(context: Context){
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
-        "identityOfficer_data",
+        "storage",
         Context.MODE_PRIVATE
     )
 

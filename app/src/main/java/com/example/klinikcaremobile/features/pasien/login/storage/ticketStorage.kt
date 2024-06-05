@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class TicketStorage(context: Context){
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
-        "ticket_data",
+        "storage",
         Context.MODE_PRIVATE
     )
 

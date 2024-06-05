@@ -5,17 +5,26 @@ import android.content.SharedPreferences
 
 class IdentityStorage(context: Context){
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
-        "identity_data",
+        "storage",
         Context.MODE_PRIVATE
     )
 
     companion object {
+        private const val UUID_KEY = "uuidUser"
         private const val EMAIL_KEY = "emailUser"
         private const val NAME_KEY = "nameUser"
         private const val PHONE_KEY = "phoneUser"
         private const val PHOTO_KEY = "photoUser"
         private const val NIK_KEY = "nikUser"
         private const val BIRTHDATE_KEY = "birthdateUser"
+    }
+
+    fun saveUUID(uuid: String){
+        sharedPreferences.edit().putString(UUID_KEY, uuid).apply()
+    }
+
+    fun getUUID(): String? {
+        return sharedPreferences.getString(UUID_KEY, null)
     }
 
     fun saveEmail(email: String){

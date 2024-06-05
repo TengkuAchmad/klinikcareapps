@@ -12,6 +12,7 @@ import retrofit2.http.Url
 
 
 data class UserDataResponse(
+    @SerializedName("UUID_UA") val uuidUser: String?,
     @SerializedName("Name_UA") val name: String?,
     @SerializedName("Email_UA") val email: String?,
     @SerializedName("Phone_UA") val phone: String?,
@@ -73,6 +74,7 @@ class IdentityRequest( private val loginStorage: LoginStorage, private val ident
     }
 
     private fun saveUserDataToIdentityStorage(userData: UserDataResponse) {
+        identityStorage.saveUUID(userData.uuidUser ?: "")
         identityStorage.saveEmail(userData.email ?: "")
         identityStorage.saveName(userData.name ?: "")
         identityStorage.savePhone(userData.phone ?: "")
