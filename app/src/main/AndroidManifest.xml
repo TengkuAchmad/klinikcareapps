@@ -95,7 +95,11 @@
         <activity
             android:name=".features.petugas.riwayat.activity.riwayat_pemeriksaan"
             android:exported="true"
-            android:theme="@style/Theme.Klinikcaremobile"  />
+            android:theme="@style/Theme.Klinikcaremobile" />
+        <activity
+            android:name=".features.pasien.records.activity.hasil_diagnosa"
+            android:exported="true"
+            android:theme="@style/Theme.Klinikcaremobile" />
     </application>
 
 </manifest>

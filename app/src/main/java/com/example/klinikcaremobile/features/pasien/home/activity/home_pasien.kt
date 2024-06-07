@@ -17,6 +17,7 @@ import com.example.klinikcaremobile.features.pasien.login.storage.IdentityStorag
 import com.example.klinikcaremobile.features.pasien.login.storage.LoginStorage
 import com.example.klinikcaremobile.features.pasien.login.storage.TicketStorage
 import com.example.klinikcaremobile.features.pasien.profile.activity.profile_user
+import com.example.klinikcaremobile.features.pasien.records.activity.hasil_diagnosa
 
 class home_pasien : AppCompatActivity() {
     private lateinit var buttonProfileView: ImageView
@@ -26,6 +27,7 @@ class home_pasien : AppCompatActivity() {
     private lateinit var jumlahAntrianView: TextView
     private lateinit var appointmentView: ImageView
     private lateinit var buttonCheckAntrianView: Button
+    private lateinit var imageResumeView: ImageView
 
     private lateinit var identityStorage: IdentityStorage
     private lateinit var ticketStorage: TicketStorage
@@ -43,6 +45,7 @@ class home_pasien : AppCompatActivity() {
         jumlahAntrianView = findViewById(R.id.jumlah_antrian_value)
         appointmentView = findViewById(R.id.imageAppointment)
         buttonCheckAntrianView = findViewById(R.id.button_check_antrian)
+        imageResumeView = findViewById(R.id.imageResume)
 
 
 
@@ -50,6 +53,10 @@ class home_pasien : AppCompatActivity() {
         ticketStorage = TicketStorage(this)
 
         setContent()
+
+        imageResumeView.setOnClickListener{
+            NavigateToResume()
+        }
 
         buttonProfileView.setOnClickListener{
             NavigateToProfile()
@@ -72,6 +79,11 @@ class home_pasien : AppCompatActivity() {
 
     private fun NavigateToProfile() {
         val intent = Intent(this, profile_user::class.java)
+        startActivity(intent)
+    }
+
+    private fun NavigateToResume() {
+        val intent = Intent(this, hasil_diagnosa::class.java)
         startActivity(intent)
     }
 

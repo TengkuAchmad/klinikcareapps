@@ -46,7 +46,7 @@ class RiwayatRequest(private val loginStorage: LoginStorage, private val riwayat
             ) {
                 if (response.isSuccessful) {
                     val riwayats = response.body()
-                        Log.d("Data Riwayat", riwayats.toString())
+                    Log.d("Data Riwayat", riwayats.toString())
 
                     if (riwayats != null && riwayats.isNotEmpty()) {
                         val riwayatsWithNumbers = riwayats.mapIndexed { index, riwayat ->

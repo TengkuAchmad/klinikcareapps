@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:background="@drawable/button_white_rounded"
-                    android:text="PERIKSA"
+                    android:text="PERBARUI"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_blue"
