@@ -64,7 +64,7 @@ class riwayat_pemeriksaan : AppCompatActivity() {
             } else {
                 val data = ArrayList<RiwayatListViewModel>()
 
-                data.add(RiwayatListViewModel("-", "-"))
+                data.add(RiwayatListViewModel("-", "Tidak ada catatan pemeriksaan"))
 
                 val adaptor = RiwayatListAdaptor(data)
 

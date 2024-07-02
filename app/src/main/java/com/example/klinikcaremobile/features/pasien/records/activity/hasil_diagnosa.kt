@@ -60,12 +60,13 @@ class hasil_diagnosa : AppCompatActivity() {
                 val alergies = recordStorage.getRecordAlergi()
                 val obats = recordStorage.getRecordObat()
                 val times = recordStorage.getRecordTime()
+                val pemeriksa = recordStorage.getRecordPersonel()
 
                 countRecordView.text = "${diagnoses.size} RIWAYAT PEMERIKSAAN"
 
                 for (i in diagnoses.indices) {
-                    if (diagnoses[i] != null && alergies[i] != null && obats[i] != null && times[i] != null){
-                        data.add(RecordListViewModel(diagnoses[i], alergies[i], obats[i], times[i]))
+                    if (diagnoses[i] != null && alergies[i] != null && obats[i] != null && times[i] != null && pemeriksa[i] != null){
+                        data.add(RecordListViewModel(diagnoses[i], alergies[i], obats[i], times[i], pemeriksa[i]))
                     } else {
                         Log.w("Daftar_Records", "Ignoring null data at index $i")
                     }
@@ -79,7 +80,7 @@ class hasil_diagnosa : AppCompatActivity() {
             } else {
                 val data = ArrayList<RecordListViewModel>()
 
-                data.add(RecordListViewModel("-", "-", "-", "-"))
+                data.add(RecordListViewModel("-", "-", "-", "-", "-"))
 
                 val adaptor = RecordsAdaptor(data)
 

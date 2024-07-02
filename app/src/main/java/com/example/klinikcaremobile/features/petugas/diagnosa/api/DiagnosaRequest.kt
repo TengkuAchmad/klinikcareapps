@@ -13,7 +13,8 @@ data class DiagnosaRequestBody(
     val nik: String,
     val diagnosis: String,
     val obat: String,
-    val alergi: String
+    val alergi: String,
+    val id: String
 )
 
 data class DiagnosaResponse(
@@ -35,14 +36,14 @@ object ApiClientCreateDiagnosa {
     val apiServiceCreateDiagnosa : ApiServiceCreateDiagnosa = retrofit.create(ApiServiceCreateDiagnosa::class.java)
 }
 class DiagnosaRequest ( private val loginStorage: LoginStorage){
-    fun performCreateDiagnosa(nik: String, diagnosis: String, obat: String, alergi: String, callback: (Boolean, String) -> Unit) {
+    fun performCreateDiagnosa(nik: String, diagnosis: String, obat: String, alergi: String, id: String, callback: (Boolean, String) -> Unit) {
         val accessToken = loginStorage.getAccessToken()
         if (accessToken.isNullOrEmpty()){
             callback(false, "Access token is missing")
             return
         }
 
-        val requestBody = DiagnosaRequestBody(nik, diagnosis, obat, alergi)
+        val requestBody = DiagnosaRequestBody(nik, diagnosis, obat, alergi, id)
 
         val call = ApiClientCreateDiagnosa.apiServiceCreateDiagnosa.create(url = AppConstants.MEDIC_URL, requestBody,"Bearer $accessToken" )
 

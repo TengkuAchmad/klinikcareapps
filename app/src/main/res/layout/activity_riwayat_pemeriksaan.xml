@@ -106,7 +106,7 @@
                 android:id="@+id/list_riwayat_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="4"
+                tools:itemCount="1"
                 tools:listitem="@layout/card_riwayat_recycler" />
 
         </LinearLayout>

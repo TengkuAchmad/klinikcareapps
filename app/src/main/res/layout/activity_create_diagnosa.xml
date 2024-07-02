@@ -140,24 +140,24 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
                     android:paddingTop="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PETUGAS                : "
-                        android:textSize="13sp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="PETUGAS PEMERIKSA"
+                        android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/officerName_diagnose"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/PersonelSpinner"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dr. Santi"
-                        android:textSize="13sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:spinnerMode="dropdown" />
 
                 </LinearLayout>
 

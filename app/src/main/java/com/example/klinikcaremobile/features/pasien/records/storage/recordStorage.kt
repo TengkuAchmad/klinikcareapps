@@ -18,6 +18,7 @@ class RecordStorage(context: Context) {
         private const val RECORD_ALERGI = "recordAlergiData"
         private const val RECORD_OBAT = "recordObatData"
         private const val RECORD_TIME = "recordTimeData"
+        private const val RECORD_PERSONEL = "recordPersonelData"
     }
 
     fun saveRecordDiagnose(diagnoses : List<String>){
@@ -33,6 +34,12 @@ class RecordStorage(context: Context) {
         val json = Gson().toJson(Obats)
         sharedPreferences.edit().putString(RECORD_OBAT, json).apply()
     }
+
+    fun saveRecordPersonel(Names: List<String?>) {
+        val json = Gson().toJson(Names)
+        sharedPreferences.edit().putString(RECORD_PERSONEL, json).apply()
+    }
+
     fun saveRecordTime(times: List<String>) {
         val formattedTimes = times.map { originalTime ->
             try {
@@ -66,6 +73,12 @@ class RecordStorage(context: Context) {
         val json = sharedPreferences.getString(RECORD_OBAT, "")
         return Gson().fromJson(json, object : TypeToken<List<String>>() {}.type) ?: listOf()
     }
+
+    fun getRecordPersonel() : List<String> {
+        val json = sharedPreferences.getString(RECORD_PERSONEL, "")
+        return Gson().fromJson(json, object : TypeToken<List<String>>() {}.type) ?: listOf()
+    }
+
     fun getRecordTime() : List<String> {
         val json = sharedPreferences.getString(RECORD_TIME, "")
         return Gson().fromJson(json, object : TypeToken<List<String>>() {}.type) ?: listOf()

@@ -11,12 +11,15 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Url
 
-
+data class MedicPersonel(
+    @SerializedName("Name_MP") val name: String?
+)
 data class RecordResponse(
     @SerializedName("Diagnosis_DM") val diagnosis: String?,
     @SerializedName("Obat_DM") val obat: String?,
     @SerializedName("Alergi_DM") val alergi: String?,
-    @SerializedName("createdAt") val time: String?
+    @SerializedName("createdAt") val time: String?,
+    @SerializedName("MedicPersonel") val medicPersonel: MedicPersonel?
 )
 
 interface ApiServiceGetDataRecordList {
@@ -76,11 +79,15 @@ class RecordRequest (private val loginStorage: LoginStorage, private val recordS
         val obat = records.mapNotNull { it.obat }
         val alergi = records.mapNotNull { it.alergi }
         val time = records.mapNotNull { it.time }
+        val name = records.map { it.medicPersonel?.name }
+
+        Log.d("NAMEPERSONEL", name.toString())
 
         recordStorage.saveRecordDiagnose(diagnose)
         recordStorage.saveRecordObat(obat)
         recordStorage.saveRecordAlergi(alergi)
         recordStorage.saveRecordTime(time)
+        recordStorage.saveRecordPersonel(name)
 
 
     }

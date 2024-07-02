@@ -23,6 +23,7 @@ class RecordsAdaptor (private val mList: List<RecordListViewModel>) : RecyclerVi
         holder.alergiValueView.text = recordListViewModel.hasilAlergi
         holder.obatValueView.text = recordListViewModel.hasilObat
         holder.timeValueView.text = recordListViewModel.hasilTime
+        holder.pemeriksaValueView.text = recordListViewModel.hasilPemeriksa
     }
 
     override fun getItemCount(): Int {
@@ -34,6 +35,7 @@ class RecordsAdaptor (private val mList: List<RecordListViewModel>) : RecyclerVi
         val alergiValueView: TextView = itemView.findViewById(R.id.value_hasil_alergi)
         val obatValueView: TextView = itemView.findViewById(R.id.value_hasil_obat)
         val timeValueView: TextView = itemView.findViewById(R.id.value_hasil_time)
+        val pemeriksaValueView: TextView = itemView.findViewById(R.id.value_pemeriksa_diagnosa)
     }
 }
 

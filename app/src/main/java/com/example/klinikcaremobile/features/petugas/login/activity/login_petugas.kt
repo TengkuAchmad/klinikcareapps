@@ -14,8 +14,10 @@ import com.example.klinikcaremobile.R
 import com.example.klinikcaremobile.features.petugas.home.activity.home_petugas
 import com.example.klinikcaremobile.features.petugas.login.api.IdentityRequest
 import com.example.klinikcaremobile.features.petugas.login.api.LoginRequest
+import com.example.klinikcaremobile.features.petugas.login.api.PersonelRequest
 import com.example.klinikcaremobile.features.petugas.login.storage.IdentityOfficerStorage
 import com.example.klinikcaremobile.features.petugas.login.storage.LoginStorage
+import com.example.klinikcaremobile.features.petugas.login.storage.PersonelStorage
 import com.example.klinikcaremobile.features.petugas.login.storage.TicketOfficerStorage
 import com.example.klinikcaremobile.features.petugas.register.activity.register_petugas
 
@@ -65,10 +67,12 @@ class login_petugas : AppCompatActivity() {
         val loginStorage = LoginStorage(this)
         val identityOfficerStorage = IdentityOfficerStorage(this)
         val ticketOfficerStorage = TicketOfficerStorage(this)
+        val personelStorage = PersonelStorage(this)
 
         val loginRequest = LoginRequest(loginStorage)
         val identityRequest = IdentityRequest(loginStorage, identityOfficerStorage)
         val ticketRequest = TicketOfficerRequest(loginStorage, ticketOfficerStorage)
+        val personelRequest = PersonelRequest(loginStorage, personelStorage)
 
         loginRequest.performLoginRequest(email, password) { success, message ->
             runOnUiThread {
@@ -77,7 +81,13 @@ class login_petugas : AppCompatActivity() {
                         if (success) {
                         ticketRequest.getTicketOfficerData { success, message ->
                             if (success){
-                                navigateToHomePage()
+                                personelRequest.getPersonelData { success, message ->
+                                    if (success) {
+                                        navigateToHomePage()
+                                    } else {
+                                        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                                    }
+                                }
                             } else {
                                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                             }
